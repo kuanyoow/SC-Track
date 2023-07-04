@@ -2,11 +2,11 @@
 
 ### What's SC-Track?
 
-SC-Track is an efficient multi-object cell tracking algorithm that can generate accurate single cell linages from the segmented nucleus of timelapse microscopy images. It employs a probabilistic cache-cascade matching model that can tolerate noisy segmentation and classification outputs, such as randomly missing segmentations and false detections/classifications from deep learning models. It also has a built in cell division detection module that can assign mother-daughter relationships using the outline information of cells.
+SC-Track is an efficient multi-object cell tracking algorithm that can generate accurate single cell linages from the segmented nucleus of timelapse microscopy images. It employs a probabilistic cache-cascade matching model that can tolerate noisy segmentation and classification outputs, such as randomly missing segmentations and false detections/classifications from deep learning models. It also has a built-in cell division detection module that can assign mother-daughter relationships using the outline information of cells.
 
-SC-Track allows users to use two different segmentation results as input. It can take either:
-1) A greyscale Multi-TIFF image where every segmented instance of cells is given a unique pixel value and the background set as 0.
-2) A VGG image annotator (VIA2) compatible JSON file containing the segmented instances of every cell. 
+SC-Track allows users to use two different segmentation results as input. It can either take:
+1) A greyscale Multi-TIFF image, where every segmented instance of cells is given a unique pixel value and the background set as 0.
+2) A VGG image annotator (VIA2) compatible JSON file, containing a the segmented instances of every cell. 
 
 SC-Track will output the tracking results in a track table for downstream analysis. It can optionally produce a png image folder containing the labelled cell linages, VIA2 combatible JSON file containing the tracking information and a collection of TrackingTree files to aid visualisation and analysis of the generated single cell tracks. 
 
