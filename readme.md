@@ -1,27 +1,18 @@
 
 
-### What's  SC-Track?
+### What's SC-Track?
 
+SC-Track is an efficient multi-object cell tracking algorithm that can generate accurate single cell linages from the segmented nucleus of timelapse microscopy images. It employs a probabilistic cache-cascade matching model that can tolerate noisy segmentation and classification outputs, such as randomly missing segmentations and false detections/classifications from deep learning models. It also has a built in cell division detection module that can assign mother-daughter relationships using the outline information of cells.
 
-SC-Track is an efficient algorithm for dynamic tracking of single cells on different time-lapse microscope images. 
-It can use the segmentation results of various models to efficiently track single cells and reconstruct cell lines. 
-It can track multi-generational cell division events without any additional information, only using the outline information of cells; 
-and can reduce the noise of the segmentation, so as to use the noise segmentation results to generate accurate cell lineages. 
-Its cascade-caching model can efficiently deal with segmentation loss, and its TPS algorithm can perform accurate reclassification 
-for users with cell classification needs (such as classification of different cell cycle phases). 
-SC-Track allows users to use different segmentation results as input, including the JSON annotation file format supported by VGG image annotator, 
-and the common mask grayscale image format. The export results include track table, visualized labeled image, 
-JSON file containing tracking information (which can be imported into VGG image annotator for viewing), 
-and a collection of TrackingTree structure tree files. Users can perform more detailed downstream analysis on the track table, 
-view the tracking results through visualized results, and modify the track table or track json file to manually correct tracking errors. 
-SC-Track is not only suitable for small timelapse analysis, but also suitable for long time and high cell density timelapse analysis of thousands of frames.
+SC-Track allows users to use two different segmentation results as input. It can take either:
+1) A greyscale Multi-TIFF image where every segmented instance of cells is given a unique pixel value and the background set as 0.
+2) A VGG image annotator (VIA2) compatible JSON file containing the segmented instances of every cell. 
 
+SC-Track will output the tracking results in a track table for downstream analysis. It can optionally produce a png image folder containing the labelled cell linages, VIA2 combatible JSON file containing the tracking information and a collection of TrackingTree files to aid visualisation and analysis of the generated single cell tracks. 
 
+### Why using SC-Track?
 
-
-### Why using  SC-Track?
-
--   The current mainstream methods for image segmentation all use deep learning, and the output results contain noises of varying intensities. SC-Track is currently the only algorithm that can use these noise data for accurate single-cell tracking and lineage reconstruction.
+- The current mainstream methods for image segmentation all use deep learning, and the output results contain noises of varying intensities. SC-Track is currently the only algorithm that can use these noise data for accurate single-cell tracking and lineage reconstruction.
 - SC-Track is compatible with the output results of most of the existing mainstream segmentation models, as well as manual segmentation results, including Cellpose, DeepCell, Stardist, etc. Users can choose a more advanced and suitable segmentation model according to the cell type to split.
 - SC-Track can efficiently track multiple targets between frames without relying on global information, and can be used for real-time tracking.
 - SC-Track is implemented in Python, which has strong scalability, convenient and quick installation, and low dependency.
@@ -45,8 +36,8 @@ Where image.tif is the original image, mask.tif, and annotation.json are annotat
 ```
 Requirement: Python >= 3.7
 
-Windows: pip isntall SC-Track
-Linux/Macos: pip3 isntall SC-Track
+Windows: pip install SC-Track
+Linux/Macos: pip3 install SC-Track
 ```
 
 
@@ -58,8 +49,8 @@ Linux/Macos: pip3 isntall SC-Track
 ### Usage
 
 ```python
-We provide a command line tool, you only need to run the sctrack tool on the command line. To automate batch processing of a large number of files, please refer to our source code documentation.
-Its basic usage is:
+# We provide a command line tool, you only need to run the sctrack tool on the command line. To automate batch processing of a large number of files, please refer to our source code documentation.
+# Its basic usage is:
     
 from SCTrack import strat_track
 
