@@ -20,7 +20,7 @@ SC-Track will output the tracking results in a track table for downstream analys
 ### How to use SC-Track?
 
 ```
-SC-Track can be installed using the following methods listed below. It does not require many dependencies. If you have a single-channel segmentation result, we require that your segmentation result must be a mask grayscale file in the form of 2D+t in tiff format. The cells in each mask need to guarantee their pixel values. is unique; or a JSON comment file. The specific format can refer to our example.
+If you have a single-channel segmentation result, we require that your segmentation result must be a mask grayscale file in the form of 2D+t in tiff format. The cells in each mask need to guarantee their pixel values. is unique; or a JSON comment file. The specific format can refer to our example.
 
 When the segmentation result is a mask, just run: sctrack -p image.tif -a mask.tif.
 When the segmentation result is an annotation json file, just run: sctrack -p image.tif -a annotation.json.
@@ -32,6 +32,7 @@ Where image.tif is the original image, mask.tif, and annotation.json are annotat
 ### Installation
 
 ```
+SC-Track can be installed using the following methods listed below. It will automatically install all the required dependencies.
 Requirement: Python >= 3.7
 
 Windows: pip install SC-Track
