@@ -23,6 +23,7 @@ If you have a single-channel segmentation result, the segmentation results shoul
 ```
 sctrack -p image.tif -a mask.tif
 ```
+
 When the segmentation results are contained in a VIA2 compatible JSON file, you will need to run SC-Track from the folder containing the image and JSON files. The command to call SC-Track is as follows: 
 ```
 sctrack -p image.tif -a annotation.json
